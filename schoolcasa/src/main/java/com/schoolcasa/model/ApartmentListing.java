@@ -18,7 +18,7 @@ public class ApartmentListing {
     @Column(columnDefinition = "tinyint(1) default 0")
     private boolean isDeleted;
     private String imageURL;
-    
+
     public String getImageURL() {
         return imageURL;
     }
