@@ -16,9 +16,9 @@ public class ItemAddController {
     private ItemAddService itemAddService;
 
     @PostMapping("/postItem")
-    public String addItem(@RequestParam String product_name, @RequestParam double price, @RequestParam String address, @RequestParam String description, @RequestParam String category, @RequestParam double age, @RequestParam double warranty, @RequestParam String imageurl) {
+    public String addItem(@RequestParam String productName, @RequestParam double price, @RequestParam String address, @RequestParam String description, @RequestParam String category, @RequestParam String age, @RequestParam String warranty, @RequestParam String imageurl) {
         try {
-            ItemListing itemListing = itemAddService.addItem(product_name, price,address, description, category,age, warranty,imageurl);
+            ItemListing itemListing = itemAddService.addItem(productName, price,address, description, category,age, warranty,imageurl);
             if (itemListing != null) {
                 return "Item added";
             }

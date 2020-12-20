@@ -16,9 +16,9 @@ public class ItemAddServiceImpl implements ItemAddService {
     }
 
     @Override
-    public ItemListing addItem(String product_name,  double price, String address, String description, String category,double age, double warranty , String imageurl) {
+    public ItemListing addItem(String productName,  double price, String address, String description, String category,String age, String warranty , String imageurl) {
         ItemListing itemListing = new ItemListing();
-        itemListing.setProduct_name(product_name);
+        itemListing.setProductName(productName);
         itemListing.setAge(age);
         itemListing.setPrice(price);
         itemListing.setAddress(address);

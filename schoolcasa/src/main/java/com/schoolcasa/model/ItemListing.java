@@ -9,14 +9,14 @@ public class ItemListing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String product_name;
+    private String productName;
     private double price;
     private String address;
     private String description;
     private String imageurl;
     private String category;
-    private double age;
-    private double warranty;
+    private String age;
+    private String warranty;
 
     public int getId() {
         return id;
@@ -26,12 +26,12 @@ public class ItemListing {
         this.id = id;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getProductName() {
+        return productName;
     }
 
-    public ItemListing setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public ItemListing setProductName(String productName) {
+        this.productName = productName;
         return this;
     }
 
@@ -80,20 +80,20 @@ public class ItemListing {
         return this;
     }
 
-    public double getAge() {
+    public String getAge() {
         return age;
     }
 
-    public ItemListing setAge(double age) {
+    public ItemListing setAge(String age) {
         this.age = age;
         return this;
     }
 
-    public double getWarranty() {
+    public String getWarranty() {
         return warranty;
     }
 
-    public ItemListing setWarranty(double warranty) {
+    public ItemListing setWarranty(String warranty) {
         this.warranty = warranty;
         return this;
     }
