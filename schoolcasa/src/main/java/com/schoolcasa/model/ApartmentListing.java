@@ -9,7 +9,7 @@ public class ApartmentListing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int bedrooms;
-    private int bathrooms;
+    private String bathrooms;
     private double rent;
     private String address;
     private String description;
@@ -60,11 +60,11 @@ public class ApartmentListing {
         this.bedrooms = bedrooms;
     }
 
-    public int getBathrooms() {
+    public String getBathrooms() {
         return bathrooms;
     }
 
-    public void setBathrooms(int bathrooms) {
+    public void setBathrooms(String bathrooms) {
         this.bathrooms = bathrooms;
     }
 

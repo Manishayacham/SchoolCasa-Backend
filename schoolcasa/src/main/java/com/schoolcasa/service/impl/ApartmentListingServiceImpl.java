@@ -16,7 +16,7 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
     }
 
     @Override
-    public ApartmentListing addApartmentListing(int bedrooms, int bathrooms, double rent, String address, String description, boolean isParkingAvailable) {
+    public ApartmentListing addApartmentListing(int bedrooms, String bathrooms, double rent, String address, String description, boolean isParkingAvailable) {
         ApartmentListing apartmentListing = new ApartmentListing();
         apartmentListing.setBedrooms(bedrooms);
         apartmentListing.setBathrooms(bathrooms);

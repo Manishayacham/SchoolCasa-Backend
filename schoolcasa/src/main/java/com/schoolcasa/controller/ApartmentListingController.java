@@ -15,7 +15,7 @@ public class ApartmentListingController {
     private ApartmentListingService apartmentListingService;
 
     @PostMapping("/postAptLisiting")
-    public String addAparmentListing(@RequestParam int bedrooms, @RequestParam int bathrooms, @RequestParam double rent, @RequestParam String address, @RequestParam String description, @RequestParam boolean isParkingAvailable) {
+    public String addAparmentListing(@RequestParam int bedrooms, @RequestParam String bathrooms, @RequestParam double rent, @RequestParam String address, @RequestParam String description, @RequestParam boolean isParkingAvailable) {
         try {
             ApartmentListing apartmentListing = apartmentListingService.addApartmentListing(bedrooms, bathrooms, rent, address, description, isParkingAvailable);
             if (apartmentListing != null) {
