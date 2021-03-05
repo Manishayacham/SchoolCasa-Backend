@@ -1,6 +1,7 @@
 package com.schoolcasa.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table
@@ -18,6 +19,15 @@ public class ApartmentListing {
     @Column(columnDefinition = "tinyint(1) default 0")
     private boolean isDeleted;
     private String imageURL;
+    private Date availableDate;
+
+    public Date getAvailableDate() {
+        return availableDate;
+    }
+
+    public void setAvailableDate(Date availableDate) {
+        this.availableDate = availableDate;
+    }
 
     public String getImageURL() {
         return imageURL;

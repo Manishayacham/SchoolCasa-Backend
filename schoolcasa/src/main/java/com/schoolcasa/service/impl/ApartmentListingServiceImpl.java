@@ -6,6 +6,8 @@ import com.schoolcasa.service.ApartmentListingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class ApartmentListingServiceImpl implements ApartmentListingService {
     private ApartmentListingRepository apartmentListingRepository;
@@ -16,7 +18,7 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
     }
 
     @Override
-    public ApartmentListing addApartmentListing(int bedrooms, String bathrooms, double rent, String address, String description, boolean isParkingAvailable) {
+    public ApartmentListing addApartmentListing(int bedrooms, String bathrooms, double rent, String address, String description, boolean isParkingAvailable, Date availableDate) {
         ApartmentListing apartmentListing = new ApartmentListing();
         apartmentListing.setBedrooms(bedrooms);
         apartmentListing.setBathrooms(bathrooms);
@@ -24,6 +26,7 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
         apartmentListing.setAddress(address);
         apartmentListing.setDescription(description);
         apartmentListing.setParkingAvailable(isParkingAvailable);
+        apartmentListing.setAvailableDate(availableDate);
         return apartmentListingRepository.save(apartmentListing);
     }
 }

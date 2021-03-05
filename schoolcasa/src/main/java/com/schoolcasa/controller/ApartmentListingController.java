@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 @RestController
 @CrossOrigin(origins = "*")
 public class ApartmentListingController {
@@ -15,9 +17,9 @@ public class ApartmentListingController {
     private ApartmentListingService apartmentListingService;
 
     @PostMapping("/postAptLisiting")
-    public String addAparmentListing(@RequestParam int bedrooms, @RequestParam String bathrooms, @RequestParam double rent, @RequestParam String address, @RequestParam String description, @RequestParam boolean isParkingAvailable) {
+    public String addAparmentListing(@RequestParam int bedrooms, @RequestParam String bathrooms, @RequestParam double rent, @RequestParam String address, @RequestParam String description, @RequestParam boolean isParkingAvailable, @RequestParam Date availableDate) {
         try {
-            ApartmentListing apartmentListing = apartmentListingService.addApartmentListing(bedrooms, bathrooms, rent, address, description, isParkingAvailable);
+            ApartmentListing apartmentListing = apartmentListingService.addApartmentListing(bedrooms, bathrooms, rent, address, description, isParkingAvailable, availableDate);
             if (apartmentListing != null) {
                 return "Apartment listing added successful";
             }
@@ -25,6 +27,5 @@ public class ApartmentListingController {
             e.printStackTrace();
         }
         return "Apartment listing add failed";
-
     }
 }
