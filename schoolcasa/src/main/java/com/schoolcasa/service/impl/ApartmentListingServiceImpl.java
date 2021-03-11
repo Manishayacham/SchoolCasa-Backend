@@ -39,7 +39,7 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
     @Override
     public ApartmentListing addApartmentListing(int bedrooms, String bathrooms, double rent, String address,
                                                 String description, boolean isParkingAvailable, Date availableDate,
-                                                MultipartFile image) {
+                                                MultipartFile image1, MultipartFile image2, MultipartFile image3) {
         ApartmentListing apartmentListing = new ApartmentListing();
         apartmentListing.setBedrooms(bedrooms);
         apartmentListing.setBathrooms(bathrooms);
@@ -48,9 +48,18 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
         apartmentListing.setDescription(description);
         apartmentListing.setParkingAvailable(isParkingAvailable);
         apartmentListing.setAvailableDate(availableDate);
-        if (image != null) {
-            String imageUrl = uploadFile(image);
-            apartmentListing.setImageURL(imageUrl);
+        String imageUrl = "";
+        if (image1 != null) {
+            imageUrl = uploadFile(image1);
+            apartmentListing.setImageURL1(imageUrl);
+        }
+        if (image2 != null) {
+            imageUrl = uploadFile(image2);
+            apartmentListing.setImageURL2(imageUrl);
+        }
+        if (image3 != null) {
+            imageUrl = uploadFile(image3);
+            apartmentListing.setImageURL3(imageUrl);
         }
         return apartmentListingRepository.save(apartmentListing);
     }

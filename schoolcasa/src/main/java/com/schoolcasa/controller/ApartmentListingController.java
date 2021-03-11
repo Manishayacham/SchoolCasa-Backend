@@ -18,15 +18,19 @@ public class ApartmentListingController {
     private ApartmentListingService apartmentListingService;
 
     @PostMapping("/postAptLisiting")
-    public String addAparmentListing(@RequestParam int bedrooms, @RequestParam String bathrooms,
+    public String addAparmentListing(@RequestParam int bedrooms,
+                                     @RequestParam String bathrooms,
                                      @RequestParam double rent,
-                                     @RequestParam String address, @RequestParam String description,
+                                     @RequestParam String address,
+                                     @RequestParam String description,
                                      @RequestParam boolean isParkingAvailable,
                                      @RequestParam Date availableDate,
-                                     @RequestParam(required = false) MultipartFile image) {
+                                     @RequestParam(required = false) MultipartFile image1,
+                                     @RequestParam(required = false) MultipartFile image2,
+                                     @RequestParam(required = false) MultipartFile image3) {
         try {
             ApartmentListing apartmentListing = apartmentListingService.addApartmentListing(bedrooms, bathrooms, rent,
-                    address, description, isParkingAvailable, availableDate, image);
+                    address, description, isParkingAvailable, availableDate, image1,image2,image3);
             if (apartmentListing != null) {
                 return "Apartment listing added successful";
             }

@@ -9,5 +9,7 @@ public interface ApartmentListingService {
     public ApartmentListing addApartmentListing(int bedrooms, String bathrooms, double rent,
                                                 String address, String description, boolean isParkingAvailable,
                                                 Date availableDate,
-                                                MultipartFile image);
+                                                MultipartFile image1,
+                                                MultipartFile image2,
+                                                MultipartFile image3);
 }

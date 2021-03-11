@@ -18,8 +18,26 @@ public class ApartmentListing {
     private boolean isParkingAvailable;
     @Column(columnDefinition = "tinyint(1) default 0")
     private boolean isDeleted;
-    private String imageURL;
+    private String imageURL1;
     private Date availableDate;
+    private String imageURL2;
+    private String imageURL3;
+
+    public String getImageURL2() {
+        return imageURL2;
+    }
+
+    public void setImageURL2(String imageURL2) {
+        this.imageURL2 = imageURL2;
+    }
+
+    public String getImageURL3() {
+        return imageURL3;
+    }
+
+    public void setImageURL3(String imageURL3) {
+        this.imageURL3 = imageURL3;
+    }
 
     public Date getAvailableDate() {
         return availableDate;
@@ -29,12 +47,12 @@ public class ApartmentListing {
         this.availableDate = availableDate;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImageURL1() {
+        return imageURL1;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImageURL1(String imageURL1) {
+        this.imageURL1 = imageURL1;
     }
 
 
