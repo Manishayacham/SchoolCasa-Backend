@@ -11,5 +11,7 @@ public interface ApartmentListingService {
                                                 Date availableDate,
                                                 MultipartFile image1,
                                                 MultipartFile image2,
-                                                MultipartFile image3);
+                                                MultipartFile image3,
+                                                String latitude,
+                                                String longitude);
 }

@@ -22,6 +22,24 @@ public class ApartmentListing {
     private Date availableDate;
     private String imageURL2;
     private String imageURL3;
+    private String latitude;
+    private String longitude;
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
 
     public String getImageURL2() {
         return imageURL2;
