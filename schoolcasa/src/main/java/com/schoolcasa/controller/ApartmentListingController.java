@@ -29,10 +29,11 @@ public class ApartmentListingController {
                                      @RequestParam(required = false) MultipartFile image2,
                                      @RequestParam(required = false) MultipartFile image3,
                                      @RequestParam(required = false) String latitude,
-                                     @RequestParam(required = false) String longitude) {
+                                     @RequestParam(required = false) String longitude,
+                                     @RequestParam String email) {
         try {
             ApartmentListing apartmentListing = apartmentListingService.addApartmentListing(bedrooms, bathrooms, rent,
-                    address, description, isParkingAvailable, availableDate, image1, image2, image3, latitude, longitude);
+                    address, description, isParkingAvailable, availableDate, image1, image2, image3, latitude, longitude, email);
             if (apartmentListing != null) {
                 return "Apartment listing added successful";
             }

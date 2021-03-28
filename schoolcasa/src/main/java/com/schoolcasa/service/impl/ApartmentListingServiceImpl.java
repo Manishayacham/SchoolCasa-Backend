@@ -40,7 +40,7 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
     public ApartmentListing addApartmentListing(int bedrooms, String bathrooms, double rent, String address,
                                                 String description, boolean isParkingAvailable, Date availableDate,
                                                 MultipartFile image1, MultipartFile image2, MultipartFile image3,
-                                                String latitude, String longitude) {
+                                                String latitude, String longitude, String email) {
         ApartmentListing apartmentListing = new ApartmentListing();
         apartmentListing.setBedrooms(bedrooms);
         apartmentListing.setBathrooms(bathrooms);
@@ -64,6 +64,7 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
         }
         apartmentListing.setLatitude(latitude);
         apartmentListing.setLongitude(longitude);
+        apartmentListing.setEmail(email);
         return apartmentListingRepository.save(apartmentListing);
     }
 

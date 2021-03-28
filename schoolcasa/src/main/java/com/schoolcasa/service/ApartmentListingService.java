@@ -13,5 +13,6 @@ public interface ApartmentListingService {
                                                 MultipartFile image2,
                                                 MultipartFile image3,
                                                 String latitude,
-                                                String longitude);
+                                                String longitude,
+                                                String email);
 }
