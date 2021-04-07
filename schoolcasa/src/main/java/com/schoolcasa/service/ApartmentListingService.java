@@ -15,4 +15,6 @@ public interface ApartmentListingService {
                                                 String latitude,
                                                 String longitude,
                                                 String email);
+
+    public String deleteApartmentListing(int id);
 }

@@ -100,4 +100,14 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
         }
         return "Uploading Successful ";
     }
+
+    @Override
+    public String deleteApartmentListing(int id) {
+        try {
+            apartmentListingRepository.deleteById(id);
+        }catch(Exception e){
+            return "Deletion unsuccessful, id is not present in DB.";
+        }
+        return "Deletion successful";
+    }
 }
