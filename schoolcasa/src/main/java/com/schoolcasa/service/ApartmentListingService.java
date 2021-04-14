@@ -17,4 +17,16 @@ public interface ApartmentListingService {
                                                 String email);
 
     public String deleteApartmentListing(int id);
+
+    public ApartmentListing editApartmentListing(int apartmentId,
+                                                 int bedrooms,
+                                                 String bathrooms,
+                                                 double rent,
+                                                 String address,
+                                                 String description,
+                                                 boolean isParkingAvailable,
+                                                 Date availableDate,
+                                                 String latitude,
+                                                 String longitude,
+                                                 String email);
 }

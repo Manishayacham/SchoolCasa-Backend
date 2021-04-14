@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class ApartmentListingServiceImpl implements ApartmentListingService {
@@ -109,5 +110,30 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
             return "Deletion unsuccessful, id is not present in DB.";
         }
         return "Deletion successful";
+    }
+
+    @Override
+    public ApartmentListing editApartmentListing(int apartmentId, int bedrooms, String bathrooms, double rent, String address,
+                                                String description, boolean isParkingAvailable, Date availableDate,
+                                                String latitude, String longitude, String email) {
+        Optional<ApartmentListing> apartmentListingOptional = apartmentListingRepository.findById(apartmentId);
+        if(apartmentListingOptional.isPresent()) {
+            ApartmentListing apartmentListing = new ApartmentListing();
+            apartmentListing.setId(apartmentId);
+            apartmentListing.setBedrooms(bedrooms);
+            apartmentListing.setBathrooms(bathrooms);
+            apartmentListing.setRent(rent);
+            apartmentListing.setAddress(address);
+            apartmentListing.setDescription(description);
+            apartmentListing.setParkingAvailable(isParkingAvailable);
+            apartmentListing.setAvailableDate(availableDate);
+            apartmentListing.setLatitude(latitude);
+            apartmentListing.setLongitude(longitude);
+            apartmentListing.setEmail(email);
+            return apartmentListingRepository.save(apartmentListing);
+        }else{
+            return null;
+        }
+
     }
 }
