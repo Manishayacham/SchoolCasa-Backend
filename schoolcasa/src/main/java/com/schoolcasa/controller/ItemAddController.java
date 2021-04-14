@@ -19,10 +19,11 @@ public class ItemAddController {
     @PostMapping("/postItem")
     public String addItem(@RequestParam(required = false) MultipartFile file, @RequestParam String productName, @RequestParam double price, @RequestParam String address,
                           @RequestParam String description, @RequestParam String category, @RequestParam String age,
-                          @RequestParam String warranty) {
+                          @RequestParam String warranty,
+                          @RequestParam String email) {
         System.out.println("Obtained request " + productName);
         try {
-            ItemListing itemListing = itemAddService.addItem(file,productName, price, address, description, category, age, warranty);
+            ItemListing itemListing = itemAddService.addItem(file, productName, price, address, description, category, age, warranty, email);
             if (itemListing != null) {
                 return "Item added";
             }

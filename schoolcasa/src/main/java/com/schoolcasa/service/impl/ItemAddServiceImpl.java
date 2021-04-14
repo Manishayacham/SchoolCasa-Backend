@@ -39,7 +39,7 @@ public class ItemAddServiceImpl implements ItemAddService {
     }
 
     @Override
-    public ItemListing addItem(MultipartFile multipartFile, String productName, double price, String address, String description, String category, String age, String warranty) {
+    public ItemListing addItem(MultipartFile multipartFile, String productName, double price, String address, String description, String category, String age, String warranty, String email) {
 
         ItemListing itemListing = new ItemListing();
         itemListing.setProductName(productName);
@@ -49,7 +49,7 @@ public class ItemAddServiceImpl implements ItemAddService {
         itemListing.setDescription(description);
         itemListing.setWarranty(warranty);
         itemListing.setCategory(category);
-
+        itemListing.setEmail(email);
         String imageUrl = "";
 
         if (multipartFile != null) {
