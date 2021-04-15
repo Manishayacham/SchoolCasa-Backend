@@ -20,4 +20,9 @@ public class ItemListingServiceImpl implements ItemListService {
 		return itemListingRepository.findAll();
 	}
 
+	@Override
+	public List<ItemListing> getMyItemListings(String email){
+		return itemListingRepository.getItemListByEmail(email);
+	}
+
 }
