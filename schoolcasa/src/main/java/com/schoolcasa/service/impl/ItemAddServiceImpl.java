@@ -102,4 +102,14 @@ public class ItemAddServiceImpl implements ItemAddService {
         }
         return "Uploading Successful ";
     }
+
+    @Override
+    public String deleteItemListing(int id){
+        try {
+            itemRepository.deleteById(id);
+        }catch(Exception e){
+            return "Deletion unsuccessful, id is not present in DB.";
+        }
+        return "Deletion successful";
+    }
 }

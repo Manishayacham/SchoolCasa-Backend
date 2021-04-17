@@ -3,10 +3,7 @@ package com.schoolcasa.controller;
 import com.schoolcasa.model.ItemListing;
 import com.schoolcasa.service.ItemAddService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
@@ -31,6 +28,11 @@ public class ItemAddController {
             e.printStackTrace();
         }
         return "Item add failed";
+    }
 
+    @DeleteMapping("/deleteItemListing/{id}")
+    public String deleteItemListing(@PathVariable int id){
+        System.out.println("Received id"+id);
+        return itemAddService.deleteItemListing(id);
     }
 }
