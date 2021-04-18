@@ -32,7 +32,23 @@ public class ItemAddController {
 
     @DeleteMapping("/deleteItemListing/{id}")
     public String deleteItemListing(@PathVariable int id){
-        System.out.println("Received id"+id);
         return itemAddService.deleteItemListing(id);
+    }
+
+    @PutMapping("/editItemListing")
+    public String addItem(@RequestParam int id, @RequestParam String productName,
+                          @RequestParam double price, @RequestParam String address,
+                          @RequestParam String description, @RequestParam String category,
+                          @RequestParam String age, @RequestParam String warranty,
+                          @RequestParam String email) {
+        try {
+            ItemListing itemListing = itemAddService.editItemListing(id,productName, price, address, description, category, age, warranty, email);
+            if (itemListing != null) {
+                return "Item listing edit successful";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Item listing edit failed";
     }
 }
