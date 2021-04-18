@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class User {
-	
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -31,5 +31,11 @@ public class User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 }
