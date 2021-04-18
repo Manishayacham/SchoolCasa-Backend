@@ -11,4 +11,7 @@ import java.util.List;
 public interface ApartmentListingRepository extends JpaRepository<ApartmentListing, Integer> {
     @Query(value="select * from apartment_listing where email = ?1",nativeQuery = true)
     public List<ApartmentListing> getApartmentListByEmail(String emailID);
+
+    @Query(value="select * from apartment_listing where id = ?1 and is_deleted = false ",nativeQuery = true)
+    public ApartmentListing getRecommendedApartmentListById(int id);
 }
