@@ -79,17 +79,16 @@ public class GetRecommendationServiceImpl implements GetRecommendationsService {
         try {
             GetRecommendationsRequest recommendationsRequest = GetRecommendationsRequest.builder()
                     .campaignArn(campaignArn)
-                    .numResults(20)
+                    .numResults(10)
                     .userId(String.valueOf(userId))
                     .build();
 
             GetRecommendationsResponse recommendationsResponse = personalizeRuntimeClient.getRecommendations(recommendationsRequest);
             List<PredictedItem> items = recommendationsResponse.itemList();
 
-
             for (PredictedItem item: items) {
                 int aptId = Integer.parseInt(item.itemId());
-                ApartmentListing apartmentListing = apartmentListingRepository.getRecommendedApartmentListById(aptId);
+                ApartmentListing apartmentListing = apartmentListingRepository.getRecommendedApartmentListById(aptId,email);
                 if(apartmentListing != null)
                 apartmentListings.add(apartmentListing);
             }
