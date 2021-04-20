@@ -39,7 +39,7 @@ public class Preferences {
 		this.foodPref = foodPref;
 	}
 
-	public String isStudyTime() {
+	public String getIsStudyTime() {
 		return studyTime;
 	}
 
@@ -47,7 +47,7 @@ public class Preferences {
 		this.studyTime = studyTime;
 	}
 
-	public String isSmoking() {
+	public String getIsSmoking() {
 		return isSmoking;
 	}
 
@@ -55,7 +55,7 @@ public class Preferences {
 		this.isSmoking = isSmoking;
 	}
 
-	public String isPetFriendly() {
+	public String getIsPetFriendly() {
 		return isPetFriendly;
 	}
 

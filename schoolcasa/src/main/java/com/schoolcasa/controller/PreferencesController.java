@@ -15,13 +15,13 @@ public class PreferencesController {
     private PreferenceService preferenceService;
 
     @PostMapping("/addPreference")
-    public String addPreference(@RequestParam String foodPref, @RequestParam String studyTime,@RequestParam String isSmoking,@RequestParam String isPetFriendly,
-                          @RequestParam String email) {
+    public String addPreference(@RequestBody Preferences preferenceObject) {
         try {
-            Preferences preference = preferenceService.addPreference( foodPref, studyTime, isSmoking, isPetFriendly, email);
+            Preferences preference = preferenceService.addPreference( preferenceObject.getFoodPref(), preferenceObject.getIsStudyTime(), preferenceObject.getIsSmoking(), preferenceObject.getIsPetFriendly(), preferenceObject.getEmail());
             if (preference != null) {
                 return "Preferences added successfully";
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
