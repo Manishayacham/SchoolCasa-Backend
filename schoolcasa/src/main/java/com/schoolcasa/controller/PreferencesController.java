@@ -1,5 +1,6 @@
 package com.schoolcasa.controller;
 
+import com.schoolcasa.model.ItemListing;
 import com.schoolcasa.model.Preferences;
 import com.schoolcasa.service.PreferenceService;
 
@@ -26,5 +27,21 @@ public class PreferencesController {
         }
         return "Preference add failed";
     }
+    
+    @PutMapping("/editPreferences")
+    public String editPreference(@RequestParam int id, @RequestParam String foodPref, @RequestParam String studyTime,@RequestParam String isSmoking,@RequestParam String isPetFriendly,
+            @RequestParam String email) {
+    	System.out.println("editing");
+    	try {
+            Preferences preference = preferenceService.editPreference(id, foodPref, studyTime, isSmoking, isPetFriendly, email);
+            if (preference != null) {
+                return "Preferences edit successful";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Preferences edit failed";
+    }
+    
 
 }
