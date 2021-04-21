@@ -22,4 +22,9 @@ public class ShowApartmentListingServiceImpl implements ShowApartmentListingServ
 		return apartmentListingRepository.findAll();
 	}
 
+	@Override
+	public List<ApartmentListing> getMyApartmentListings(String emailID) {
+		return apartmentListingRepository.getApartmentListByEmail(emailID);
+	}
+
 }

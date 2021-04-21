@@ -10,15 +10,17 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class User {
-	
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-	
+
+
+
 	@Column(unique=true)
 	private String email;
 	private String phoneNumber;
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -31,5 +33,11 @@ public class User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 }

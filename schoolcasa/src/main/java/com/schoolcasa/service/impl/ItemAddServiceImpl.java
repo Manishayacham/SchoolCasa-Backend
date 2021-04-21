@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Optional;
 
 @Service
 public class ItemAddServiceImpl implements ItemAddService {
@@ -39,7 +40,7 @@ public class ItemAddServiceImpl implements ItemAddService {
     }
 
     @Override
-    public ItemListing addItem(MultipartFile multipartFile, String productName, double price, String address, String description, String category, String age, String warranty) {
+    public ItemListing addItem(MultipartFile multipartFile, String productName, double price, String address, String description, String category, String age, String warranty, String email) {
 
         ItemListing itemListing = new ItemListing();
         itemListing.setProductName(productName);
@@ -49,7 +50,7 @@ public class ItemAddServiceImpl implements ItemAddService {
         itemListing.setDescription(description);
         itemListing.setWarranty(warranty);
         itemListing.setCategory(category);
-
+        itemListing.setEmail(email);
         String imageUrl = "";
 
         if (multipartFile != null) {
@@ -85,6 +86,7 @@ public class ItemAddServiceImpl implements ItemAddService {
         return fileUrl;
 
     }
+
     private File convertMultiPartToFile(MultipartFile file) throws IOException {
         File convertFile = new File(file.getOriginalFilename());
         FileOutputStream fos = new FileOutputStream(convertFile);
@@ -97,9 +99,41 @@ public class ItemAddServiceImpl implements ItemAddService {
     private String uploadFileTos3bucket(String fileName, File file) {
         try {
             amazonS3.putObject(new PutObjectRequest(bucketName, fileName, file).withCannedAcl(CannedAccessControlList.PublicRead));
-        }catch(AmazonServiceException e) {
+        } catch (AmazonServiceException e) {
             return "uploadFileTos3bucket().Uploading failed :" + e.getMessage();
         }
         return "Uploading Successful ";
+    }
+
+    @Override
+    public String deleteItemListing(int id) {
+        try {
+            itemRepository.deleteById(id);
+        } catch (Exception e) {
+            return "Deletion unsuccessful, id is not present in DB.";
+        }
+        return "Deletion successful";
+    }
+
+    @Override
+    public ItemListing editItemListing(int id, String productName, double price,
+                                       String address, String description,
+                                       String category, String age,
+                                       String warranty, String email) {
+        Optional<ItemListing> itemListingOptional = itemRepository.findById(id);
+        if (itemListingOptional.isPresent()) {
+            ItemListing itemListing = new ItemListing();
+            itemListing.setId(id);
+            itemListing.setProductName(productName);
+            itemListing.setAge(age);
+            itemListing.setPrice(price);
+            itemListing.setAddress(address);
+            itemListing.setDescription(description);
+            itemListing.setWarranty(warranty);
+            itemListing.setCategory(category);
+            itemListing.setEmail(email);
+            return itemRepository.save(itemListing);
+        }
+        return null;
     }
 }

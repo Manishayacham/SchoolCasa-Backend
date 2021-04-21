@@ -17,6 +17,15 @@ public class ItemListing {
     private String category;
     private String age;
     private String warranty;
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public int getId() {
         return id;
@@ -30,73 +39,64 @@ public class ItemListing {
         return productName;
     }
 
-    public ItemListing setProductName(String productName) {
+    public void setProductName(String productName) {
         this.productName = productName;
-        return this;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public ItemListing setPrice(double price) {
+    public void setPrice(double price) {
         this.price = price;
-        return this;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public ItemListing setAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
-        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public ItemListing setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
-        return this;
     }
 
     public String getImageURL() {
         return imageurl;
     }
 
-    public ItemListing setImageURL(String imageurl) {
+    public void setImageURL(String imageurl) {
         this.imageurl = imageurl;
-        return this;
     }
 
     public String getCategory() {
         return category;
     }
 
-    public ItemListing setCategory(String category) {
+    public void setCategory(String category) {
         this.category = category;
-        return this;
     }
 
     public String getAge() {
         return age;
     }
 
-    public ItemListing setAge(String age) {
+    public void setAge(String age) {
         this.age = age;
-        return this;
     }
 
     public String getWarranty() {
         return warranty;
     }
 
-    public ItemListing setWarranty(String warranty) {
+    public void setWarranty(String warranty) {
         this.warranty = warranty;
-        return this;
     }
-
 
 }

@@ -9,6 +9,7 @@ import com.schoolcasa.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 
- @Query("SELECT u FROM User u WHERE LOWER(u.email) = LOWER(:email)")
+    @Query("SELECT u FROM User u WHERE LOWER(u.email) = LOWER(:email)")
     public User getUserByEmail(@Param("email") String email);
+
 }
