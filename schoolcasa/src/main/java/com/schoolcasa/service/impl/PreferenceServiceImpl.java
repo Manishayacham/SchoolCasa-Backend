@@ -1,7 +1,6 @@
 package com.schoolcasa.service.impl;
 
 
-import com.schoolcasa.model.ItemListing;
 import com.schoolcasa.model.Preferences;
 import com.schoolcasa.repository.PreferenceRepository;
 import com.schoolcasa.service.PreferenceService;

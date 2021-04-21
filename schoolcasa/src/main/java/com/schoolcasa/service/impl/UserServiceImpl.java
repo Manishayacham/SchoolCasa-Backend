@@ -20,5 +20,14 @@ public class UserServiceImpl implements UserService {
 		user.setPhoneNumber(phoneNum);
 		return userRepository.save(user);
 	} 
+	
+	@Override
+	public User getUserByEmail(String email) {
+		
+		return userRepository.getUserByEmail(email);
+		
+	} 
+	
+	
 
 }
