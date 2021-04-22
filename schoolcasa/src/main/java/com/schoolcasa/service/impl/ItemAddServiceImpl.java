@@ -120,9 +120,8 @@ public class ItemAddServiceImpl implements ItemAddService {
                                        String address, String description,
                                        String category, String age,
                                        String warranty, String email) {
-        Optional<ItemListing> itemListingOptional = itemRepository.findById(id);
-        if (itemListingOptional.isPresent()) {
-            ItemListing itemListing = new ItemListing();
+        ItemListing itemListing = itemRepository.getItemListingById(id);
+        if (itemListing != null) {
             itemListing.setId(id);
             itemListing.setProductName(productName);
             itemListing.setAge(age);

@@ -106,7 +106,7 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
     public String deleteApartmentListing(int id) {
         try {
             apartmentListingRepository.deleteById(id);
-        }catch(Exception e){
+        } catch (Exception e) {
             return "Deletion unsuccessful, id is not present in DB.";
         }
         return "Deletion successful";
@@ -114,11 +114,10 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
 
     @Override
     public ApartmentListing editApartmentListing(int apartmentId, int bedrooms, String bathrooms, double rent, String address,
-                                                String description, boolean isParkingAvailable, Date availableDate,
-                                                String latitude, String longitude, String email) {
-        Optional<ApartmentListing> apartmentListingOptional = apartmentListingRepository.findById(apartmentId);
-        if(apartmentListingOptional.isPresent()) {
-            ApartmentListing apartmentListing = new ApartmentListing();
+                                                 String description, boolean isParkingAvailable, Date availableDate,
+                                                 String latitude, String longitude, String email) {
+        ApartmentListing apartmentListing = apartmentListingRepository.getApartmentById(apartmentId);
+        if (apartmentListing != null) {
             apartmentListing.setId(apartmentId);
             apartmentListing.setBedrooms(bedrooms);
             apartmentListing.setBathrooms(bathrooms);
@@ -131,7 +130,7 @@ public class ApartmentListingServiceImpl implements ApartmentListingService {
             apartmentListing.setLongitude(longitude);
             apartmentListing.setEmail(email);
             return apartmentListingRepository.save(apartmentListing);
-        }else{
+        } else {
             return null;
         }
 
