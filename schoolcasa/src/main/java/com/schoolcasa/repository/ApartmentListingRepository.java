@@ -14,4 +14,7 @@ public interface ApartmentListingRepository extends JpaRepository<ApartmentListi
 
     @Query(value="select * from apartment_listing where id = ?1 and is_deleted = false and email != ?2",nativeQuery = true)
     public ApartmentListing getRecommendedApartmentListById(int id, String emailId);
+
+    @Query(value="select * from apartment_listing where id = ?1",nativeQuery = true)
+    public ApartmentListing getApartmentById(int id);
 }

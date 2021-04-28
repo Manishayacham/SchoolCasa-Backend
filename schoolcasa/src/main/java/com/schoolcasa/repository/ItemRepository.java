@@ -13,4 +13,8 @@ public interface ItemRepository extends JpaRepository<ItemListing, Integer> {
 
     @Query(value = "select * from item_listing where email=?1", nativeQuery = true)
     public List<ItemListing> getItemListByEmail(String email);
+
+    @Query(value = "select * from item_listing where id=?1", nativeQuery = true)
+    public ItemListing getItemListingById(int id);
+
 }
