@@ -62,7 +62,8 @@ public class GetRecommendationServiceImpl implements GetRecommendationsService {
 
         AwsCredentialsProvider awsCredentialsProvider = () -> credentials;
 
-        Region region = Region.US_WEST_2;
+        //Region region = Region.US_WEST_2;
+        Region region = Region.US_EAST_1;
 
         PersonalizeRuntimeClient personalizeRuntimeClient = PersonalizeRuntimeClient.builder()
                 .credentialsProvider(awsCredentialsProvider)
